@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace GettingRealSDU
 {
-    public class Class1
+    interface IRepository
     {
+        void LoadData();
+        void SaveData();
+
+
+
+
+
     }
 }
