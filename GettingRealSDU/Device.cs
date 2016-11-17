@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GettingRealSDU
 {
-    class Device
+  public class Device
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -15,8 +15,8 @@ namespace GettingRealSDU
         public Device() { }
         public Device(int id, string name)
         {
-            id = Id;
-            name = Name;
+            Id = id;
+            Name = name;
         }
 
 

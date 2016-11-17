@@ -6,18 +6,24 @@ using System.Threading.Tasks;
 
 namespace GettingRealSDU
 {
-    class DeviceRepository : IRepository
+   public class DeviceRepository : IRepository
     {
-        List<Device> DeviceList; 
+        List<Device> DeviceList = new List<Device>();       
 
         public Device GetDevice(int id)
-        {
-            return 0;
+        {           
+           return DeviceList.Find(Device => Device.Id == id); 
         }
 
         public List<Device> GetDeviceList()
         {
             return DeviceList;
+        }
+
+        public void CreateDevice(int id, string name)
+        {     
+                      
+            DeviceList.Add(new Device(id, name));
         }
 
         public void LoadData()
