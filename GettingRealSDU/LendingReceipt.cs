@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace GettingRealSDU
 {
-    class LendingReceipt
+   public class LendingReceipt
     {
         public  string LoanerInfo { get; set; }
         public  string CurrentTime { get; set; }
+        public Lending loan { get; set; } 
 
+    
+        
         public LendingReceipt(string loanerinfo, string currenttime)
         {
             loanerinfo = LoanerInfo;
@@ -19,7 +22,15 @@ namespace GettingRealSDU
         }
          public LendingReceipt() { }
 
+        public void CreateLoan(DateTime start, DateTime end, List<Device> devices)
+        {
+            this.loan = new Lending(start, end, devices);
+        }
 
+        public Lending GetLoan()
+        {
+            return this.loan;
+        }
 
 
 

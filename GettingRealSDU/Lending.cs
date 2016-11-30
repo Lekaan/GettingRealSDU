@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace GettingRealSDU
 {
     public class Lending
-    {
-        public string StartDate { get; set; }
-        public string EndDate   { get; set; }
+    {        
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate   { get; set; }
+        public List<Device> Devices = new List<Device>();
 
 
-        public Lending(string startdate, string enddate)
+        public Lending(DateTime startdate, DateTime enddate, List<Device> devices)
         {
-            startdate = StartDate;
-            enddate = EndDate;
+            this.StartDate = startdate; 
+            this.EndDate = enddate;
+            Devices = devices;
         }
         public Lending() { }
 
