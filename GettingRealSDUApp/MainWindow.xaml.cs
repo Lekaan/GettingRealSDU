@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GettingRealSDU;
 
 namespace GettingRealSDUApp
 {
@@ -23,6 +24,12 @@ namespace GettingRealSDUApp
         public MainWindow()
         {
             InitializeComponent();
+            FileHandler fh = new FileHandler();
+            fh.CreateFiles();
+            fh.CreateDevice("TestID4", "TestMachine2");
+            //fh.CreateDevice("TestID3", "TestMachine3");
+
+
         }
     }
 }

@@ -10,7 +10,7 @@ namespace GettingRealSDU
     {
         List<Device> DeviceList = new List<Device>();       
 
-        public Device GetDevice(int id)
+        public Device GetDevice(string id)
         {           
            return DeviceList.Find(Device => Device.Id == id); 
         }
@@ -20,7 +20,7 @@ namespace GettingRealSDU
             return DeviceList;
         }
 
-        public void CreateDevice(int id, string name)
+        public void CreateDevice(string id, string name)
         {     
                       
             DeviceList.Add(new Device(id, name));

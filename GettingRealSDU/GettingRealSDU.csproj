@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Device.cs" />
     <Compile Include="DeviceRepository.cs" />
+    <Compile Include="FileHandler.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Lending.cs" />
     <Compile Include="LendingReceipt.cs" />
