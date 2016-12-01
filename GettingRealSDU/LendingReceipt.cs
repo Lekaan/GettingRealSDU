@@ -10,8 +10,9 @@ namespace GettingRealSDU
     {
         public  string LoanerInfo { get; set; }
         public  DateTime CurrentTime { get; set; }
-        public Lending Loan { get; set; } 
-        public string Casenumber { get; set; }
+        public  Lending Loan { get; set; } 
+        public  string Casenumber { get; set; }
+        public  string Initials { get; set; }
 
     
         
@@ -21,6 +22,7 @@ namespace GettingRealSDU
             this.Casenumber = casenumber;
             this.Loan= loan;
             this.CurrentTime = DateTime.Now;
+            
 
         }
          public LendingReceipt() { }
