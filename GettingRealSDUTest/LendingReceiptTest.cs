@@ -8,7 +8,7 @@ namespace GettingRealSDUTest
     [TestClass]
     public class LendingReceiptTest
     {
-
+    
         LendingReceipt lr = new LendingReceipt();
         DeviceRepository dr = new DeviceRepository();
 

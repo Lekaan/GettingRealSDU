@@ -8,10 +8,19 @@ using System.Globalization;
 namespace GettingRealSDU
 {
     public class Lending
-    {        
+    {
+      public enum Udlaan
+        {
+            Udlaant,
+            Afsluttet,
+            IkkeTilbageLeveret,
+            Reserveret
+        };
+
         public DateTime StartDate { get; set; }
         public DateTime EndDate   { get; set; }
         public List<Device> Devices = new List<Device>();
+        public Udlaan status { get; set; }
 
 
         public Lending(DateTime startdate, DateTime enddate, List<Device> devices)
