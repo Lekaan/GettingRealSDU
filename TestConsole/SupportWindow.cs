@@ -34,6 +34,8 @@ namespace TestConsole
 
         public static void Loan()
         {
+            Device device = new Device();
+            List<Device> Listofchoosendevices = new List<Device>();
             Lending loan = new Lending();
             LendingReceiptRepository lendingrepo = new LendingReceiptRepository();       
             DeviceRepository dr = new DeviceRepository();
@@ -54,17 +56,28 @@ namespace TestConsole
             Setup.ShowWhoIsLoggedIn();          
             
             dr.DeviceList.ForEach(Device => Console.WriteLine("   "+Device.Id + "  " + Device.Name));
-            Console.WriteLine("\n Choose PC to add to Loan, end selection with x");
-            string choice = Console.ReadLine();
-            
-            while (choice != "x")
-            {   
-                loan.Devices.Add(dr.GetDevice(choice));
-                loan.Devices.ForEach(Device => Console.WriteLine("   " + Device.Id + "  " + Device.Name));
+            string choice = "";
+
+
+
+            do
+            {
+                Console.WriteLine("\n Choose PC to add to Loan, end selection with x");
+                choice = Console.ReadLine();
+                Listofchoosendevices.Add(dr.GetDevice(choice));
+                Listofchoosendevices.ForEach(Device => Console.WriteLine("   " + Device.Id + "  " + Device.Name));
             }
+            while (choice != "x");
+            
+
+            Console.WriteLine("You have choosen ");
+            Listofchoosendevices.ForEach(Device => Console.WriteLine("   " + Device.Id + "  " + Device.Name));
+            Console.WriteLine("Enter Name and Email on Person borrowing the/theese devices.");
 
 
-            loan.Devices.ForEach(Device => Console.WriteLine("   " + Device.Id + "  " + Device.Name));
+
+
+
 
 
 
