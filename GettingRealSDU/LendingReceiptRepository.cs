@@ -27,7 +27,7 @@ namespace GettingRealSDU
             lendingReceiptList.Add(new LendingReceipt(loanerinfo,casenumber,loan));
         }
 
-        public LendingReceipt FindLoanByCasenumber(string casenumber)
+        public LendingReceipt FindReceiptByCasenumber(string casenumber)
         {
             return lendingReceiptList.Find(LendingReceipt => LendingReceipt.Casenumber == casenumber);
         }

@@ -53,7 +53,7 @@ namespace GettingRealSDUTest
             lrr.CreateLendingReceipt(loanerinfo, casenumber, loan);
 
             string Casenumber = "Søren-1234";
-            LendingReceipt lendingreceipt = lrr.FindLoanByCasenumber(Casenumber);
+            LendingReceipt lendingreceipt = lrr.FindReceiptByCasenumber(Casenumber);
 
 
             DateTime startdate = new DateTime(2017, 11, 30);

@@ -61,7 +61,7 @@ namespace GettingRealSDUTest
             Lending testloan2 = lr.GetLoan();
 
 
-            lr.EndLoan();
+            lr.SetStatusLoan("Afsluttet");
 
             Assert.AreEqual(Lending.Udlaan.Afsluttet, testloan2.Status);          
 

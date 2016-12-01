@@ -35,9 +35,33 @@ namespace GettingRealSDU
             return this.Loan;
         }
 
-        public void EndLoan()
+        public void SetStatusLoan(string status)
         {
-            this.Loan.Status = Lending.Udlaan.Afsluttet;
+      
+            switch (status)
+            {
+                case ("Afsluttet"):
+                    this.Loan.Status = Lending.Udlaan.Afsluttet;
+                    break;
+
+                case ("IkkeTilbageLeveret"):
+                    this.Loan.Status = Lending.Udlaan.IkkeTilbageLeveret;
+                    break;
+
+                case ("Reserveret"):
+                    this.Loan.Status = Lending.Udlaan.Reserveret;
+                    break;
+
+                case ("Udlaant"):
+                    this.Loan.Status = Lending.Udlaan.Udlaant;
+                    break;
+
+                default:
+                    break;
+
+            }
+      
+
         }
 
 
