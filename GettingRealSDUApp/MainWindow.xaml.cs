@@ -24,12 +24,13 @@ namespace GettingRealSDUApp
         public MainWindow()
         {
             InitializeComponent();
+            
             FileHandler fh = new FileHandler();
             fh.CreateFiles();
+            
             fh.CreateDevice("TestID4", "TestMachine2");
-            //fh.CreateDevice("TestID3", "TestMachine3");
-
-
+            fh.CreateSupporter("kief234", "Kirsten", "Gudman Larsen");
+            fh.CreateDevice("TestID3", "TestMachine3");
         }
     }
 }
