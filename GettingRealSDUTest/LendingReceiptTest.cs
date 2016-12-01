@@ -9,13 +9,21 @@ namespace GettingRealSDUTest
     public class LendingReceiptTest
     {
     
-        LendingReceipt lr = new LendingReceipt();
-        DeviceRepository dr = new DeviceRepository();
+        
+
+    
+         LendingReceipt lr = new LendingReceipt();
+         DeviceRepository dr = new DeviceRepository();    
+
+      
+
 
 
         [TestMethod]
         public void CreateLoan()
         {
+            
+
             DateTime start = new DateTime(2016,11,30);
             DateTime slut = new DateTime(2016,12,3);
 
@@ -32,21 +40,34 @@ namespace GettingRealSDUTest
             Assert.AreEqual(start, testloan.StartDate);
             Assert.AreEqual(slut, testloan.EndDate);
             Assert.AreEqual("1", testloan.Devices[0].Id);
+      
+
 
 
         }
 
 
         [TestMethod]
-        public void EndLoan()
+        public void CanSetStatus()
         {
-            throw new NotImplementedException();
+            DateTime start = new DateTime(2016, 11, 30);
+            DateTime slut = new DateTime(2016, 12, 3);
+
+            Device device = new Device("1", "Pelle");
+            List<Device> listdevice2 = new List<Device>();
+            listdevice2.Add(device);
+
+            lr.CreateLoan(start, slut, listdevice2);
+            Lending testloan2 = lr.GetLoan();
+
+
+            lr.EndLoan();
+
+            Assert.AreEqual(Lending.Udlaan.Afsluttet, testloan2.Status);          
+
+
         }
 
-        [TestMethod]
-        public void CannotCreateLoanOfDeviceThatIsAlreadyBorrowed()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

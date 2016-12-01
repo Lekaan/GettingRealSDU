@@ -1,4 +1,4 @@
 ﻿------ Discover test started ------
-========== Discover test finished: 6 found (0:00:00,1111381) ==========
+========== Discover test finished: 6 found (0:00:00,1250888) ==========
 ------ Run test started ------
-========== Run test finished: 6 run (0:00:00,1799771) ==========
+========== Run test finished: 6 run (0:00:00,1607422) ==========

@@ -55,6 +55,7 @@
     <Compile Include="DeviceRepositoryTest.cs" />
     <Compile Include="LendingReceiptTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LendingReceiptRepositoryTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GettingRealSDU\GettingRealSDU.csproj">

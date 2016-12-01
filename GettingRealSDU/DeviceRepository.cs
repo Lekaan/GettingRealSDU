@@ -8,7 +8,14 @@ namespace GettingRealSDU
 {
    public class DeviceRepository : IRepository
     {
-        List<Device> DeviceList = new List<Device>();       
+        List<Device> DeviceList;      
+        
+        public DeviceRepository()
+        {
+            DeviceList = new List<Device>();
+        }
+        
+         
 
         public Device GetDevice(string id)
         {           

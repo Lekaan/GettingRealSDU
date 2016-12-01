@@ -9,27 +9,35 @@ namespace GettingRealSDU
    public class LendingReceipt
     {
         public  string LoanerInfo { get; set; }
-        public  string CurrentTime { get; set; }
-        public Lending loan { get; set; } 
+        public  DateTime CurrentTime { get; set; }
+        public Lending Loan { get; set; } 
+        public string Casenumber { get; set; }
 
     
         
-        public LendingReceipt(string loanerinfo, string currenttime)
+        public LendingReceipt(string loanerinfo, string casenumber, Lending loan)
         {
-            loanerinfo = LoanerInfo;
-            currenttime = CurrentTime;
+            loanerinfo = LoanerInfo;           
+            this.Casenumber = casenumber;
+            this.Loan= loan;
+            this.CurrentTime = DateTime.Now;
 
         }
          public LendingReceipt() { }
 
         public void CreateLoan(DateTime start, DateTime end, List<Device> devices)
         {
-            this.loan = new Lending(start, end, devices);
+            this.Loan = new Lending(start, end, devices);
         }
 
         public Lending GetLoan()
         {
-            return this.loan;
+            return this.Loan;
+        }
+
+        public void EndLoan()
+        {
+            this.Loan.Status = Lending.Udlaan.Afsluttet;
         }
 
 
