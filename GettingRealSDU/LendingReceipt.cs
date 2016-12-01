@@ -18,7 +18,7 @@ namespace GettingRealSDU
         
         public LendingReceipt(string loanerinfo, string casenumber, Lending loan)
         {
-            loanerinfo = LoanerInfo;           
+            this.LoanerInfo = loanerinfo;           
             this.Casenumber = casenumber;
             this.Loan= loan;
             this.CurrentTime = DateTime.Now;

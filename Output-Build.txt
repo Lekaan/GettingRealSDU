@@ -1,0 +1,5 @@
+﻿1>------ Build started: Project: GettingRealSDU, Configuration: Debug Any CPU ------
+1>  GettingRealSDU -> C:\Users\Pelle\Source\Repos\GettingRealSDU\GettingRealSDU\bin\Debug\GettingRealSDU.dll
+2>------ Build started: Project: TestConsole, Configuration: Debug Any CPU ------
+2>  TestConsole -> C:\Users\Pelle\Source\Repos\GettingRealSDU\TestConsole\bin\Debug\TestConsole.exe
+========== Build: 2 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========

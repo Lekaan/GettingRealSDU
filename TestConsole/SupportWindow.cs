@@ -34,11 +34,14 @@ namespace TestConsole
 
         public static void Loan()
         {
+            
+
             Device device = new Device();
             List<Device> Listofchoosendevices = new List<Device>();
             Lending loan = new Lending();
             LendingReceiptRepository lendingrepo = new LendingReceiptRepository();       
             DeviceRepository dr = new DeviceRepository();
+
             dr.CreateDevice("1", "PC-1");
             dr.CreateDevice("2", "PC-2");
             dr.CreateDevice("3", "PC-3");
@@ -53,26 +56,63 @@ namespace TestConsole
             dr.CreateDevice("12", "PC-12");
 
             Setup.Headder();
-            Setup.ShowWhoIsLoggedIn();          
-            
+            Setup.ShowWhoIsLoggedIn();
+
+            Console.WriteLine("Define Lending Period:  Now to dd.mm.yyyy");
+            Console.Write("Enter returndate: ");
+            DateTime enddate = DateTime.Parse(Console.ReadLine());
+              
+
+
             dr.DeviceList.ForEach(Device => Console.WriteLine("   "+Device.Id + "  " + Device.Name));
             string choice = "";
-
 
 
             do
             {
                 Console.WriteLine("\n Choose PC to add to Loan, end selection with x");
                 choice = Console.ReadLine();
-                Listofchoosendevices.Add(dr.GetDevice(choice));
-                Listofchoosendevices.ForEach(Device => Console.WriteLine("   " + Device.Id + "  " + Device.Name));
-            }
-            while (choice != "x");
+                if (choice != "x")
+                {
+                    Listofchoosendevices.Add(dr.GetDevice(choice));
+                    Listofchoosendevices.ForEach(Device => Console.WriteLine("   " + Device.Id + "  " + Device.Name));
+                }
+
+            }while (choice != "x");
             
 
-            Console.WriteLine("You have choosen ");
+            Console.WriteLine("You have chosen ");
             Listofchoosendevices.ForEach(Device => Console.WriteLine("   " + Device.Id + "  " + Device.Name));
-            Console.WriteLine("Enter Name and Email on Person borrowing the/theese devices.");
+
+            Console.WriteLine("Enter Name and Email on Person borrowing the/theese device/s.");
+            string loanerinfo = Console.ReadLine();
+            Console.Write("Enter Casenumber: ");
+            string casenumber = Console.ReadLine();
+
+
+
+            loan.EndDate = enddate;
+            loan.StartDate = DateTime.Now;
+            loan.Devices = Listofchoosendevices;
+
+            lendingrepo.CreateLendingReceipt(loanerinfo,casenumber,loan);
+
+            Console.WriteLine("Following Receipt has been created: ");
+
+
+
+
+            Console.WriteLine("Casenumber: " + lendingrepo.FindReceiptByCasenumber(casenumber).Casenumber + " "
+                + "From: " + lendingrepo.FindReceiptByCasenumber(casenumber).CurrentTime + " "
+                + "To: " + lendingrepo.FindReceiptByCasenumber(casenumber).Loan.EndDate + " "
+                + "Created by: "+ lendingrepo.FindReceiptByCasenumber(casenumber).Initials +" "
+                + "Borrowes by: " +lendingrepo.FindReceiptByCasenumber(casenumber).LoanerInfo);
+
+            lendingrepo.FindReceiptByCasenumber(casenumber).Loan.Devices.ForEach(Device => Console.WriteLine("   " + Device.Id + "  " + Device.Name));
+
+            Console.ReadLine();
+
+
 
 
 
