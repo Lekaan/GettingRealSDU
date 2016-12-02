@@ -14,6 +14,7 @@ namespace TestConsole
             Setup.Headder();
             Setup.ShowWhoIsLoggedIn();
             Console.WriteLine("Choose between: 1: Adding Device \n 3: Delete Device");
+            Console.WriteLine("Nice");
             string choice = Console.ReadLine();
             switch (choice)
             {
