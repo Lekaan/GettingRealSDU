@@ -31,7 +31,7 @@ namespace TestConsole
 
                 case "9":
                     Console.Clear();
-
+                    AdminWindow.MainWindowsAdmin();
                     break;
                 default:
                     
