@@ -7,11 +7,9 @@ using GettingRealSDU;
 
 namespace TestConsole
 {
-<<<<<<< HEAD
-   public static class AdminWindow
-=======
+
     public static class AdminWindow
->>>>>>> 85db6ef3ec565f271c2c7d3e240f68bbc69c2c49
+
     {
         public static void MainWindowsAdmin()
         {
