@@ -128,6 +128,19 @@ namespace TestConsole
             Setup.Headder();
             Setup.ShowWhoIsLoggedIn();
 
+            Console.WriteLine("Define Lending Period:  Now to dd.mm.yyyy");
+
+            Console.Write("Enter start date: ");
+            DateTime startdate = DateTime.Parse(Console.ReadLine());
+
+            Console.Write("Enter return date: ");
+            DateTime enddate = DateTime.Parse(Console.ReadLine());
+
+            Console.WriteLine(" ");
+
+
+
+
         }
         
 

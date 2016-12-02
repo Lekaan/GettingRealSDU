@@ -7,9 +7,9 @@ using GettingRealSDU;
 
 namespace TestConsole
 {
-    class AdminWindow
+   public static class AdminWindow
     {
-        public void MainWindowsAdmin()
+        public static void MainWindowsAdmin()
         {
             Setup.Headder();
             Setup.ShowWhoIsLoggedIn();
@@ -19,6 +19,7 @@ namespace TestConsole
             switch (choice)
             {
                 case "1":
+
 
 
 
