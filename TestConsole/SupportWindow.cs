@@ -89,7 +89,7 @@ namespace TestConsole
             Console.Write("Enter Casenumber: ");
             string casenumber = Console.ReadLine();
 
-
+       
 
             loan.EndDate = enddate;
             loan.StartDate = DateTime.Now;
@@ -109,7 +109,7 @@ namespace TestConsole
                 + "Borrowes by: " +lendingrepo.FindReceiptByCasenumber(casenumber).LoanerInfo);
 
             lendingrepo.FindReceiptByCasenumber(casenumber).Loan.Devices.ForEach(Device => Console.WriteLine("   " + Device.Id + "  " + Device.Name));
-
+            lendingrepo.FindReceiptByCasenumber(casenumber).Loan.Status = Lending.Udlaan.Udlaant;
             Console.ReadLine();
 
 

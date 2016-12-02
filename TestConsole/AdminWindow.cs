@@ -8,5 +8,7 @@ namespace TestConsole
 {
     class AdminWindow
     {
+
+
     }
 }
