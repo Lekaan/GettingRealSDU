@@ -14,31 +14,52 @@ namespace GettingRealApp
 
         static void Main(string[] args)
         {
-            Setup.Headder();           
+            Setup.Headder();
             Console.Write("Enter Initials:");
             Initials = Console.ReadLine();
-            Console.Clear();
-            Console.WriteLine("Hello "+ Initials + " what would you like to login as ?");
-            Console.WriteLine("");
-            Console.WriteLine("Choice: \n 1:Support  \n 9:Admin");
-            string Choice = Console.ReadLine();
-            switch (Choice)
+            Rightsselection();
+            
+        }
+
+         
+            public static void Rightsselection() {
+           bool running = true;
+            do
             {
-                case "1":
-                    Console.Clear();
-                    SupportWindow.SupportMain();
-                    break;
+                
+                Console.Clear();
+                Console.WriteLine("Hello " + Initials + " what would you like to login as ?");
+                Console.WriteLine("");
+                Console.WriteLine("Choice: \n 1:Support  \n 9:Admin \n x for exit program.");
+                string Choice = Console.ReadLine();
 
-                case "9":
-                    Console.Clear();
-                    AdminWindow.MainWindowsAdmin();
-                    break;
-                default:
-                    
-                    break;
 
-            }            
 
+                switch (Choice)
+                {
+                    case "1":
+                        Console.Clear();
+                        SupportWindow.SupportMain();
+                        break;
+
+                    case "9":
+                        Console.Clear();
+                        AdminWindow.MainWindowsAdmin();
+                        break;
+
+                    case "x":
+                        running = false;
+                        break;
+                    default:
+
+
+                        break;
+
+                }
+            } while (running);
+        
+
+           
        }
     }
 }

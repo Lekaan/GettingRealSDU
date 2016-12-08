@@ -13,21 +13,35 @@ namespace GettingRealApp
 
         public static void SupportMain()
         {
-            Setup.Headder();
-            Setup.ShowWhoIsLoggedIn();
-            Console.WriteLine("Please choose between: \n 1: Create Loan \n 2: Create Reservation");
-            string choice =  Console.ReadLine();
-            switch (choice)
+            bool running = true;
+            do
             {
-                case "1":
-                    Console.Clear();
-                    Loan();
-                    break;
-                case "2":
-                    Console.Clear();
-                    Reservation();
-                    break;
-            }                      
+                Console.Clear();
+                Setup.Headder();
+                Setup.ShowWhoIsLoggedIn();
+                Console.WriteLine("Please choose between: \n 1: Create Loan \n 2: Create Reservation   \n 3: Return to role selection");
+                string choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "1":
+                        Console.Clear();
+                        Loan();
+                        break;
+                    case "2":
+                        Console.Clear();
+                        Reservation();
+                        break;
+
+                    case "3":
+                        Console.Clear();
+                        running = false;
+                        MainWindow.Rightsselection();
+                        break;
+
+                }
+            } while (running);
+                           
                            
             
         }
