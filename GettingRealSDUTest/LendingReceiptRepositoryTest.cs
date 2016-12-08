@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using GettingRealSDU;
 using System.Collections.Generic;
+using GettingRealDomain;
 
 namespace GettingRealSDUTest
 {
