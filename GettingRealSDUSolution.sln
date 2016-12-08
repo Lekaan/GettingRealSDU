@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GettingRealDomain", "GettingReal.Domain\GettingRealDomain.csproj", "{A6B4246F-8EAB-49CD-8FEB-C8ACA896A87B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GettingRealDAL", "GettingRealDAL\GettingRealDAL.csproj", "{F182669D-14CF-4EDF-BB17-AE15A38562DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{A6B4246F-8EAB-49CD-8FEB-C8ACA896A87B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6B4246F-8EAB-49CD-8FEB-C8ACA896A87B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6B4246F-8EAB-49CD-8FEB-C8ACA896A87B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F182669D-14CF-4EDF-BB17-AE15A38562DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F182669D-14CF-4EDF-BB17-AE15A38562DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F182669D-14CF-4EDF-BB17-AE15A38562DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F182669D-14CF-4EDF-BB17-AE15A38562DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
