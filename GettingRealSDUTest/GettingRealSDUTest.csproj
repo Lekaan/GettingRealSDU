@@ -58,6 +58,10 @@
     <Compile Include="LendingReceiptRepositoryTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GettingReal.Domain\GettingRealDomain.csproj">
+      <Project>{a6b4246f-8eab-49cd-8feb-c8aca896a87b}</Project>
+      <Name>GettingRealDomain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GettingRealSDU\GettingRealSDU.csproj">
       <Project>{dcb59cd6-53da-4bde-8bec-b23af0fa1547}</Project>
       <Name>GettingRealSDU</Name>

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace GettingRealSDU
 {
    public class DeviceRepository : IRepository
@@ -13,8 +15,7 @@ namespace GettingRealSDU
         public DeviceRepository()
         {
             DeviceList = new List<Device>();
-        }
-        
+        }        
          
 
         public Device GetDevice(string id)
