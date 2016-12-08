@@ -35,6 +35,11 @@ namespace GettingRealSDU_BL
             DeviceList.Add(new Device(id, name));
         }
 
+        public void DeleteDevice(string id)
+        {
+            DeviceList.Remove(DeviceList.Find(Device => Device.DeviceId == id));
+        }
+
         public void LoadData()
         {
             throw new NotImplementedException();

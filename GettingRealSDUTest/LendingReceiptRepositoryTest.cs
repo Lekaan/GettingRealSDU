@@ -29,7 +29,7 @@ namespace GettingRealSDUTest
 
             string loanerinfo = "Søren";
 
-            lrr.CreateLendingReceipt(loanerinfo,casenumber,loan);
+            lrr.CreateLendingReceipt(loanerinfo,casenumber,loan, "Pelle");
 
             Assert.AreEqual(casenumber,lrr.lendingReceiptList[0].Casenumber);
 
@@ -51,7 +51,7 @@ namespace GettingRealSDUTest
             string casenumber = "Søren-1234";
             string loanerinfo = "Søren";
 
-            lrr.CreateLendingReceipt(loanerinfo, casenumber, loan);
+            lrr.CreateLendingReceipt(loanerinfo, casenumber, loan, "Pelle");
 
             string Casenumber = "Søren-1234";
             LendingReceipt lendingreceipt = lrr.FindReceiptByCasenumber(Casenumber);

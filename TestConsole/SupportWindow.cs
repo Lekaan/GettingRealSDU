@@ -79,7 +79,9 @@ namespace GettingRealApp
               
 
 
+
             dr.DeviceList.ForEach(Device => Console.WriteLine(Device.ToString()));
+
             string choice = "";
 
 
@@ -90,14 +92,18 @@ namespace GettingRealApp
                 if (choice != "x")
                 {
                     Listofchoosendevices.Add(dr.GetDevice(choice));
+
                     Listofchoosendevices.ForEach(Device => Console.WriteLine(Device.ToString()));
+
                 }
 
             }while (choice != "x");
             
 
             Console.WriteLine("You have chosen ");
+
             Listofchoosendevices.ForEach(Device => Console.WriteLine(Device.ToString()));
+
 
             Console.WriteLine("Enter Name and Email on Person borrowing the/theese device/s.");
             string loanerinfo = Console.ReadLine();
@@ -120,7 +126,10 @@ namespace GettingRealApp
             Console.WriteLine(lendingrepo.FindReceiptByCasenumber(casenumber).ToString());
                 
 
+
+
             lendingrepo.FindReceiptByCasenumber(casenumber).Loan.Devices.ForEach(Device => Console.WriteLine(Device.ToString()));
+
             lendingrepo.FindReceiptByCasenumber(casenumber).Loan.Status = Lending.Udlaan.Udlaant;
             Console.ReadLine();
 

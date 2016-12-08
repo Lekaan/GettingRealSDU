@@ -19,6 +19,7 @@ namespace GettingRealApp
             Console.WriteLine("Choose between: 1: Adding Device \n 3: Delete Device");
             string choice = Console.ReadLine();
             switch (choice)
+            
 
             {
                 case "1":
@@ -31,6 +32,9 @@ namespace GettingRealApp
                     break;
 
                 case "3":
+                    Console.Clear();
+                    RemoveDevice();
+                    Console.ReadKey();
 
 
                     break;
@@ -51,7 +55,22 @@ namespace GettingRealApp
             
             dr.CreateDevice(id, name);
             
+
             Console.WriteLine(dr.GetDevice(id).DeviceId + dr.GetDevice(id).DeviceName);
+        }
+
+        public static void RemoveDevice()
+        {
+            DeviceRepository dr = new DeviceRepository();
+
+            Console.WriteLine("Insert Id for the pc you want to remove:");
+            string id = Console.ReadLine();
+
+            dr.DeleteDevice(id);
+
+            Console.WriteLine("removed Id number {0}", id);
+       
+
         }
     }
 }
