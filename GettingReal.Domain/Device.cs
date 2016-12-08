@@ -8,14 +8,14 @@ namespace GettingRealDomain
 {
   public class Device
     {
-        public string Id { get; set; }
+        public string DeviceId { get; set; }
         public string Name { get; set; }
 
 
         public Device() { }
-        public Device(string id, string name)
+        public Device(string deviceId, string name)
         {
-            Id = id;
+            DeviceId = deviceId;
             Name = name;
         }
 

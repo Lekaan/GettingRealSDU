@@ -65,7 +65,7 @@ namespace GettingRealApp
               
 
 
-            dr.DeviceList.ForEach(Device => Console.WriteLine("   "+Device.Id + "  " + Device.Name));
+            dr.DeviceList.ForEach(Device => Console.WriteLine("   "+Device.DeviceId + "  " + Device.Name));
             string choice = "";
 
 
@@ -76,14 +76,14 @@ namespace GettingRealApp
                 if (choice != "x")
                 {
                     Listofchoosendevices.Add(dr.GetDevice(choice));
-                    Listofchoosendevices.ForEach(Device => Console.WriteLine("   " + Device.Id + "  " + Device.Name));
+                    Listofchoosendevices.ForEach(Device => Console.WriteLine("   " + Device.DeviceId + "  " + Device.Name));
                 }
 
             }while (choice != "x");
             
 
             Console.WriteLine("You have chosen ");
-            Listofchoosendevices.ForEach(Device => Console.WriteLine("   " + Device.Id + "  " + Device.Name));
+            Listofchoosendevices.ForEach(Device => Console.WriteLine("   " + Device.DeviceId + "  " + Device.Name));
 
             Console.WriteLine("Enter Name and Email on Person borrowing the/theese device/s.");
             string loanerinfo = Console.ReadLine();
@@ -109,7 +109,7 @@ namespace GettingRealApp
                 + "Created by: "+ lendingrepo.FindReceiptByCasenumber(casenumber).Initials +" "
                 + "Borrowes by: " +lendingrepo.FindReceiptByCasenumber(casenumber).LoanerInfo);
 
-            lendingrepo.FindReceiptByCasenumber(casenumber).Loan.Devices.ForEach(Device => Console.WriteLine("   " + Device.Id + "  " + Device.Name));
+            lendingrepo.FindReceiptByCasenumber(casenumber).Loan.Devices.ForEach(Device => Console.WriteLine("   " + Device.DeviceId + "  " + Device.Name));
             lendingrepo.FindReceiptByCasenumber(casenumber).Loan.Status = Lending.Udlaan.Udlaant;
             Console.ReadLine();
 
