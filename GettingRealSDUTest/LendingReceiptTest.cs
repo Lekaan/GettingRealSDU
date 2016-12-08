@@ -42,7 +42,7 @@ namespace GettingRealSDUTest
 
             Assert.AreEqual(start, testloan.StartDate);
             Assert.AreEqual(slut, testloan.EndDate);
-            Assert.AreEqual("1", testloan.Devices[0].Id);
+            Assert.AreEqual("1", testloan.Devices[0].DeviceId);
       
 
 

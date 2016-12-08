@@ -29,7 +29,7 @@ namespace GettingRealSDUTest
         {      
             dr.CreateDevice("1", "PC1");
             List<Device> DeviceList = dr.GetDeviceList();
-            Assert.IsTrue(TestList[0].Name == DeviceList[0].Name);
+            Assert.IsTrue(TestList[0].DeviceName == DeviceList[0].DeviceName);
         }
 
         [TestMethod]
@@ -38,7 +38,7 @@ namespace GettingRealSDUTest
             dr.CreateDevice("6","PC6");
 
             Device testdevice = dr.GetDevice("6");
-            Assert.IsTrue("PC6" == testdevice.Name);          
+            Assert.IsTrue("PC6" == testdevice.DeviceName);          
         }
 
         [TestMethod]
@@ -47,8 +47,8 @@ namespace GettingRealSDUTest
             dr.CreateDevice("5","PC5");
             Device testdevice = dr.GetDevice("5");
 
-            Assert.IsTrue("5" == testdevice.Id);
-            Assert.IsTrue("PC5" == testdevice.Name);
+            Assert.IsTrue("5" == testdevice.DeviceId);
+            Assert.IsTrue("PC5" == testdevice.DeviceName);
         }
     }
 }
