@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using GettingRealSDU;
 using GettingRealDomain;
 
-namespace TestConsole
+namespace GettingRealApp
 {
     public static class SupportWindow
     {
