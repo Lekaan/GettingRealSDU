@@ -16,12 +16,13 @@ namespace GettingRealDomain
 
     
         
-        public LendingReceipt(string loanerinfo, string casenumber, Lending loan)
+        public LendingReceipt(string loanerinfo, string casenumber, Lending loan, string initials)
         {
             this.LoanerInfo = loanerinfo;           
             this.Casenumber = casenumber;
             this.Loan= loan;
             this.CurrentTime = DateTime.Now;
+            this.Initials = initials;
             
 
         }
@@ -64,6 +65,17 @@ namespace GettingRealDomain
             }
       
 
+        }
+
+        public override string ToString()
+        {
+            return "Casenumber: " + Casenumber + " "
+                + "From: " + CurrentTime + " "
+                + "To: " + Loan.EndDate + " "
+                + "Created by: " + Initials + " "
+                + "Borrowes by: " + LoanerInfo + " \n  ";    
+                              
+                              
         }
 
 

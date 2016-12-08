@@ -23,14 +23,16 @@ namespace GettingRealSDU_BL
             throw new NotImplementedException();
         }
 
-        public void CreateLendingReceipt(string loanerinfo, string casenumber, Lending loan)
+        public void CreateLendingReceipt(string loanerinfo, string casenumber, Lending loan, string initials)
         {
-            lendingReceiptList.Add(new LendingReceipt(loanerinfo,casenumber,loan));
+            lendingReceiptList.Add(new LendingReceipt(loanerinfo,casenumber,loan, initials));
         }
 
         public LendingReceipt FindReceiptByCasenumber(string casenumber)
         {
             return lendingReceiptList.Find(LendingReceipt => LendingReceipt.Casenumber == casenumber);
         }
+
+        
     }
 }

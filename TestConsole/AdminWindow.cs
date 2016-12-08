@@ -54,6 +54,7 @@ namespace GettingRealApp
             
             dr.CreateDevice(id, name);
             
+<<<<<<< HEAD
             Console.WriteLine(dr.GetDevice(id).DeviceId + dr.GetDevice(id).Name);
         }
 
@@ -68,6 +69,9 @@ namespace GettingRealApp
             Console.WriteLine("removed Id number {0}", id);
 
 
+=======
+            Console.WriteLine(dr.GetDevice(id).DeviceId + dr.GetDevice(id).DeviceName);
+>>>>>>> refs/remotes/origin/master
         }
     }
 }
