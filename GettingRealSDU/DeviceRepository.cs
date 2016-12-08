@@ -21,7 +21,7 @@ namespace GettingRealSDU_BL
 
         public Device GetDevice(string id)
         {           
-           return DeviceList.Find(Device => Device.Id == id); 
+           return DeviceList.Find(Device => Device.DeviceId == id); 
         }
 
         public List<Device> GetDeviceList()

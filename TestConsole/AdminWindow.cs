@@ -51,7 +51,7 @@ namespace GettingRealApp
             
             dr.CreateDevice(id, name);
             
-            Console.WriteLine(dr.GetDevice(id).Id + dr.GetDevice(id).Name);
+            Console.WriteLine(dr.GetDevice(id).DeviceId + dr.GetDevice(id).DeviceName);
         }
     }
 }

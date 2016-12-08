@@ -8,15 +8,20 @@ namespace GettingRealDomain
 {
   public class Device
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
+        public string DeviceId { get; set; }
+        public string DeviceName { get; set; }
 
 
         public Device() { }
-        public Device(string id, string name)
+        public Device(string deviceid, string name)
         {
-            Id = id;
-            Name = name;
+            DeviceId = deviceid;
+            DeviceName = name;
+        }
+
+        public override string ToString()
+        {
+            return "Id: " + DeviceId+ "  Name: " + DeviceName;
         }
 
 
