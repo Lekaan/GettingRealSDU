@@ -7,7 +7,7 @@ using GettingRealDomain;
 
 
 
-namespace GettingRealSDU
+namespace GettingRealSDU_BL
 {
    public class DeviceRepository : IRepository
     {

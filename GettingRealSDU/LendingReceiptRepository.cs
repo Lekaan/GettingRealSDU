@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GettingRealDomain;
 
-namespace GettingRealSDU
+namespace GettingRealSDU_BL
 {
     public class LendingReceiptRepository : IRepository
     {

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GettingRealSDU", "GettingRealSDU\GettingRealSDU.csproj", "{DCB59CD6-53DA-4BDE-8BEC-B23AF0FA1547}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GettingRealSDU_BL", "GettingRealSDU\GettingRealSDU_BL.csproj", "{DCB59CD6-53DA-4BDE-8BEC-B23AF0FA1547}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GettingRealSDUTest", "GettingRealSDUTest\GettingRealSDUTest.csproj", "{98FEBC3B-A637-489E-8ABB-E53A7E80BE0C}"
 EndProject
