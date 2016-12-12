@@ -9,9 +9,22 @@ namespace GettingRealSDU_BL
 {
     public class LendingReceiptRepository : IRepository
     {
-        public List<LendingReceipt> lendingReceiptList = new List<LendingReceipt>();
+        //Singleton 
+        private static readonly LendingReceiptRepository _instance = new LendingReceiptRepository();
+        public static LendingReceiptRepository Instance
+        {
+            get
+            {
+                return _instance;
+            }
+        }
 
-        
+        public List<LendingReceipt> lendingReceiptList;
+        public LendingReceiptRepository()
+        {
+            lendingReceiptList = new List<LendingReceipt>();
+        }
+
 
         public void LoadData()
         {
@@ -25,12 +38,12 @@ namespace GettingRealSDU_BL
 
         public void CreateLendingReceipt(string loanerinfo, string casenumber, Lending loan, string initials)
         {
-            lendingReceiptList.Add(new LendingReceipt(loanerinfo,casenumber,loan, initials));
+            Instance.lendingReceiptList.Add(new LendingReceipt(loanerinfo,casenumber,loan, initials));
         }
 
         public LendingReceipt FindReceiptByCasenumber(string casenumber)
         {
-            return lendingReceiptList.Find(LendingReceipt => LendingReceipt.Casenumber == casenumber);
+            return  Instance.lendingReceiptList.Find(LendingReceipt => LendingReceipt.Casenumber == casenumber);
         }
 
         

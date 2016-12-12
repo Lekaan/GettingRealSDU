@@ -18,12 +18,26 @@ namespace GettingRealApp
             Console.Write("Enter Initials:");
             Initials = Console.ReadLine();
             Rightsselection();
-            
+
         }
 
-         
-            public static void Rightsselection() {
-           bool running = true;
+
+        public static void Rightsselection() {
+
+            DeviceRepository.StaticInstance.CreateDevice("1", "PC-1");
+            DeviceRepository.StaticInstance.CreateDevice("2", "PC-2");
+            DeviceRepository.StaticInstance.CreateDevice("3", "PC-3");
+            DeviceRepository.StaticInstance.CreateDevice("4", "PC-4");
+            DeviceRepository.StaticInstance.CreateDevice("5", "PC-5");
+            DeviceRepository.StaticInstance.CreateDevice("6", "PC-6");
+            DeviceRepository.StaticInstance.CreateDevice("7", "PC-7");
+            DeviceRepository.StaticInstance.CreateDevice("8", "PC-8");
+            DeviceRepository.StaticInstance.CreateDevice("9", "PC-9");
+            DeviceRepository.StaticInstance.CreateDevice("10", "PC-10");
+            DeviceRepository.StaticInstance.CreateDevice("11", "PC-11");
+            DeviceRepository.StaticInstance.CreateDevice("12", "PC-12");
+
+            bool running = true;
             do
             {
                 
@@ -32,8 +46,6 @@ namespace GettingRealApp
                 Console.WriteLine("");
                 Console.WriteLine("Choice: \n 1:Support  \n 9:Admin \n x for exit program.");
                 string Choice = Console.ReadLine();
-
-
 
                 switch (Choice)
                 {

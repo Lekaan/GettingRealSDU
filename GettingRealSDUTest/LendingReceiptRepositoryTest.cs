@@ -9,9 +9,9 @@ namespace GettingRealSDUTest
     [TestClass]
     public class LendingReceiptRepositoryTest
     {
-        DeviceRepository dr = new DeviceRepository();
+        
         LendingReceipt lr = new LendingReceipt();
-        LendingReceiptRepository lrr = new LendingReceiptRepository();
+  
 
         [TestMethod]
         public void TestCreateLendingReceipt()
@@ -29,9 +29,9 @@ namespace GettingRealSDUTest
 
             string loanerinfo = "Søren";
 
-            lrr.CreateLendingReceipt(loanerinfo,casenumber,loan, "Pelle");
+            LendingReceiptRepository.Instance.CreateLendingReceipt(loanerinfo,casenumber,loan, "Pelle");
 
-            Assert.AreEqual(casenumber,lrr.lendingReceiptList[0].Casenumber);
+            Assert.AreEqual(casenumber,LendingReceiptRepository.Instance.lendingReceiptList[0].Casenumber);
 
 
         }
@@ -51,10 +51,10 @@ namespace GettingRealSDUTest
             string casenumber = "Søren-1234";
             string loanerinfo = "Søren";
 
-            lrr.CreateLendingReceipt(loanerinfo, casenumber, loan, "Pelle");
+            LendingReceiptRepository.Instance.CreateLendingReceipt(loanerinfo, casenumber, loan, "Pelle");
 
             string Casenumber = "Søren-1234";
-            LendingReceipt lendingreceipt = lrr.FindReceiptByCasenumber(Casenumber);
+            LendingReceipt lendingreceipt = LendingReceiptRepository.Instance.FindReceiptByCasenumber(Casenumber);
 
 
             DateTime startdate = new DateTime(2017, 11, 30);

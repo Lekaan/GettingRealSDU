@@ -8,14 +8,8 @@ using GettingRealSDU_BL;
 namespace GettingRealApp
 {
     public static class Setup
-    {
-           
-
-        
-        
-            
-        
-
+    {       
+     
         public static void ShowWhoIsLoggedIn()
         {
             

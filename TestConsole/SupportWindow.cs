@@ -10,6 +10,7 @@ namespace GettingRealApp
 {
     public static class SupportWindow
     {
+        
 
         public static void SupportMain()
         {
@@ -19,7 +20,7 @@ namespace GettingRealApp
                 Console.Clear();
                 Setup.Headder();
                 Setup.ShowWhoIsLoggedIn();
-                Console.WriteLine("Please choose between: \n 1: Create Loan \n 2: Create Reservation   \n 3: Return to role selection");
+                Console.WriteLine("Please choose between: \n 1: Create Loan \n 2: Create Reservation \n 3: Show all current Loans \n 4: Return to role selection");
                 string choice = Console.ReadLine();
 
                 switch (choice)
@@ -35,9 +36,16 @@ namespace GettingRealApp
 
                     case "3":
                         Console.Clear();
+                        ShowLoanerReceipt();
+                        break; 
+
+                    case "4":
+                        Console.Clear();
                         running = false;
                         MainWindow.Rightsselection();
                         break;
+
+
 
                 }
             } while (running);
@@ -54,21 +62,8 @@ namespace GettingRealApp
             Device device = new Device();
             List<Device> Listofchoosendevices = new List<Device>();
             Lending loan = new Lending();
-            LendingReceiptRepository lendingrepo = new LendingReceiptRepository();       
-            DeviceRepository dr = new DeviceRepository();
-
-            dr.CreateDevice("1", "PC-1");
-            dr.CreateDevice("2", "PC-2");
-            dr.CreateDevice("3", "PC-3");
-            dr.CreateDevice("4", "PC-4");
-            dr.CreateDevice("5", "PC-5");
-            dr.CreateDevice("6", "PC-6");
-            dr.CreateDevice("7", "PC-7");
-            dr.CreateDevice("8", "PC-8");
-            dr.CreateDevice("9", "PC-9");
-            dr.CreateDevice("10", "PC-10");
-            dr.CreateDevice("11", "PC-11");
-            dr.CreateDevice("12", "PC-12");
+              
+           
 
             Setup.Headder();
             Setup.ShowWhoIsLoggedIn();
@@ -76,11 +71,11 @@ namespace GettingRealApp
             Console.WriteLine("Define Lending Period:  Now to dd.mm.yyyy");
             Console.Write("Enter returndate: ");
             DateTime enddate = DateTime.Parse(Console.ReadLine());
-              
 
 
 
-            dr.DeviceList.ForEach(Device => Console.WriteLine(Device.ToString()));
+
+            DeviceRepository.StaticInstance.DeviceList.ForEach(Device => Console.WriteLine(Device.ToString()));
 
             string choice = "";
 
@@ -91,7 +86,7 @@ namespace GettingRealApp
                 choice = Console.ReadLine();
                 if (choice != "x")
                 {
-                    Listofchoosendevices.Add(dr.GetDevice(choice));
+                    Listofchoosendevices.Add(DeviceRepository.StaticInstance.GetDevice(choice));
 
                     Listofchoosendevices.ForEach(Device => Console.WriteLine(Device.ToString()));
 
@@ -116,31 +111,14 @@ namespace GettingRealApp
             loan.StartDate = DateTime.Now;
             loan.Devices = Listofchoosendevices;
 
-            lendingrepo.CreateLendingReceipt(loanerinfo,casenumber,loan, MainWindow.Initials);
+            LendingReceiptRepository.Instance.CreateLendingReceipt(loanerinfo,casenumber,loan, MainWindow.Initials);
 
             Console.WriteLine("Following Receipt has been created: ");
 
-
-
-
-            Console.WriteLine(lendingrepo.FindReceiptByCasenumber(casenumber).ToString());
-                
-
-
-
-            lendingrepo.FindReceiptByCasenumber(casenumber).Loan.Devices.ForEach(Device => Console.WriteLine(Device.ToString()));
-
-            lendingrepo.FindReceiptByCasenumber(casenumber).Loan.Status = Lending.Udlaan.Udlaant;
+            Console.WriteLine(LendingReceiptRepository.Instance.FindReceiptByCasenumber(casenumber).ToString());        
+            LendingReceiptRepository.Instance.FindReceiptByCasenumber(casenumber).Loan.Devices.ForEach(Device => Console.WriteLine(Device.ToString()));
+            LendingReceiptRepository.Instance.FindReceiptByCasenumber(casenumber).Loan.Status = Lending.Udlaan.Udlaant;
             Console.ReadLine();
-
-
-
-
-
-
-
-
-
 
         }
 
@@ -158,17 +136,21 @@ namespace GettingRealApp
             DateTime enddate = DateTime.Parse(Console.ReadLine());
 
             Console.WriteLine(" ");
-
-
-
-
         }
-        
 
+        public static void ShowLoanerReceipt()
+        {
+           foreach( var LendingReceipt in LendingReceiptRepository.Instance.lendingReceiptList)
+            {
+                Console.WriteLine(LendingReceipt.ToString());
+                Console.WriteLine("Devices borrowed");
+                LendingReceipt.Loan.Devices.ForEach(Device => Console.WriteLine(Device.ToString()));
+                Console.WriteLine();
+            }
+            Console.ReadLine();   
+                        
 
-
-
-
-
+        }    
+                
     }
 }

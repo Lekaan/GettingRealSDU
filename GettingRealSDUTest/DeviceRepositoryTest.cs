@@ -11,13 +11,13 @@ namespace GettingRealSDUTest
     [TestClass]
     public class DeviceRepositoryTest
     {
-        DeviceRepository dr;
+       
         List<Device> TestList;
 
         [TestInitialize]
         public void Testinitialize()
         {
-           dr = new DeviceRepository();
+            
            TestList = new List<Device>();
            TestList.Add(new Device("1", "PC1"));
 
@@ -27,25 +27,25 @@ namespace GettingRealSDUTest
         [TestMethod]
         public void GetDeviceList()
         {      
-            dr.CreateDevice("1", "PC1");
-            List<Device> DeviceList = dr.GetDeviceList();
+            DeviceRepository.StaticInstance.CreateDevice("1", "PC1");
+            List<Device> DeviceList = DeviceRepository.StaticInstance.GetDeviceList();
             Assert.IsTrue(TestList[0].DeviceName == DeviceList[0].DeviceName);
         }
 
         [TestMethod]
         public void GetDeviceById()
         {
-            dr.CreateDevice("6","PC6");
+            DeviceRepository.StaticInstance.CreateDevice("6","PC6");
 
-            Device testdevice = dr.GetDevice("6");
+            Device testdevice = DeviceRepository.StaticInstance.GetDevice("6");
             Assert.IsTrue("PC6" == testdevice.DeviceName);          
         }
 
         [TestMethod]
         public void CreateDevice()
         {
-            dr.CreateDevice("5","PC5");
-            Device testdevice = dr.GetDevice("5");
+            DeviceRepository.StaticInstance.CreateDevice("5","PC5");
+            Device testdevice = DeviceRepository.StaticInstance.GetDevice("5");
 
             Assert.IsTrue("5" == testdevice.DeviceId);
             Assert.IsTrue("PC5" == testdevice.DeviceName);

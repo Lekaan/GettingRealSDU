@@ -16,30 +16,34 @@ namespace GettingRealApp
         {
             Setup.Headder();
             Setup.ShowWhoIsLoggedIn();
-            Console.WriteLine("Choose between: 1: Adding Device \n 3: Delete Device");
-            string choice = Console.ReadLine();
-            switch (choice)
-            
+            bool running = true;
 
+            do
             {
-                case "1":
-                    Console.Clear();
-                    AddDevice();
-                    Console.ReadKey();
+                Console.WriteLine("Choose between: \n 1: Adding Device \n 3: Delete Device \n 4: Return to login option");
+                string choice = Console.ReadLine();        
 
+                switch (choice)
+                {
+                    case "1":
+                        Console.Clear();
+                        AddDevice();
+                        Console.ReadKey();
+                        break;
 
+                    case "3":
+                        Console.Clear();
+                        RemoveDevice();
+                        Console.ReadKey();
+                        break;
 
-                    break;
+                    case "4":
+                        running = false;
+                        MainWindow.Rightsselection();
+                        break;
 
-                case "3":
-                    Console.Clear();
-                    RemoveDevice();
-                    Console.ReadKey();
-
-
-                    break;
-
-            }
+                }
+            } while (running);
 
 
 
@@ -47,29 +51,32 @@ namespace GettingRealApp
 
         public static void AddDevice()
         {
-            DeviceRepository dr = new DeviceRepository();
+        
             Console.WriteLine("Insert Id for new pc:");
             string id = Console.ReadLine();
             Console.WriteLine("Insert Name for new pc:");
             string name = Console.ReadLine();
-            
-            dr.CreateDevice(id, name);
-            
 
-            Console.WriteLine(dr.GetDevice(id).DeviceId + dr.GetDevice(id).DeviceName);
+            DeviceRepository.StaticInstance.CreateDevice(id, name);          
+
+            Console.WriteLine(DeviceRepository.StaticInstance.GetDevice(id).DeviceId + DeviceRepository.StaticInstance.GetDevice(id).DeviceName);
         }
 
         public static void RemoveDevice()
         {
-            DeviceRepository dr = new DeviceRepository();
-
+            Console.Clear();
+            DeviceRepository.StaticInstance.DeviceList.ForEach(Device => Console.WriteLine(Device));
             Console.WriteLine("Insert Id for the pc you want to remove:");
-            string id = Console.ReadLine();
+            string id = Console.ReadLine();         
 
-            dr.DeleteDevice(id);
+            DeviceRepository.StaticInstance.DeleteDevice(id);
 
+
+            Console.Clear();            
             Console.WriteLine("removed Id number {0}", id);
-       
+            DeviceRepository.StaticInstance.DeviceList.ForEach(Device => Console.WriteLine(Device));
+
+
 
         }
     }

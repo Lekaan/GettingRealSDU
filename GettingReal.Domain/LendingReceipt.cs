@@ -69,11 +69,11 @@ namespace GettingRealDomain
 
         public override string ToString()
         {
-            return "Casenumber: " + Casenumber + " "
+            return "Casenumber: " + Casenumber + " \n"
                 + "From: " + CurrentTime + " "
-                + "To: " + Loan.EndDate + " "
-                + "Created by: " + Initials + " "
-                + "Borrowes by: " + LoanerInfo + " \n  ";    
+                + "To: " + Loan.EndDate + "  \n"
+                + "Created by: " + Initials + " \n"
+                + "Borrowed by: " + LoanerInfo + " \n";    
                               
                               
         }
