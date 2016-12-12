@@ -46,6 +46,28 @@ namespace GettingRealSDU_BL
             return  Instance.lendingReceiptList.Find(LendingReceipt => LendingReceipt.Casenumber == casenumber);
         }
 
-        
+        public List<Device> ReturnAvailableDevicesForGivenPeriod(DateTime start, DateTime end)
+        {
+            List<Device> NotAvailable = new List<Device>();
+            List<Device> Available = new List<Device>();
+            Available = DeviceRepository.StaticInstance.DeviceList;
+
+            foreach (var Lending in Instance.lendingReceiptList)
+            {
+                if (Lending.Loan.StartDate <= end && start <= Lending.Loan.EndDate)
+                {
+                    NotAvailable.AddRange(Lending.Loan.Devices);
+                    Available = DeviceRepository.StaticInstance.DeviceList.Except<Device>(NotAvailable).ToList();                 
+                    
+                }
+             
+
+            }
+
+            return Available;
+        }
+
+
+
     }
 }

@@ -10,7 +10,8 @@ namespace GettingRealApp
     class MainWindow
     {
         public static string Initials { get; set; }
-
+        public static bool running = true;
+    
 
         static void Main(string[] args)
         {
@@ -37,9 +38,9 @@ namespace GettingRealApp
             DeviceRepository.StaticInstance.CreateDevice("11", "PC-11");
             DeviceRepository.StaticInstance.CreateDevice("12", "PC-12");
 
-            bool running = true;
-            do
-            {
+            
+            while (running) 
+            {  
                 
                 Console.Clear();
                 Console.WriteLine("Hello " + Initials + " what would you like to login as ?");
@@ -63,12 +64,10 @@ namespace GettingRealApp
                         running = false;
                         break;
                     default:
-
-
                         break;
 
                 }
-            } while (running);
+            } 
         
 
            

@@ -16,9 +16,9 @@ namespace GettingRealApp
         {
             Setup.Headder();
             Setup.ShowWhoIsLoggedIn();
-            bool running = true;
+            bool running3 = true;
 
-            do
+            while (running3) 
             {
                 Console.WriteLine("Choose between: \n 1: Adding Device \n 3: Delete Device \n 4: Return to login option");
                 string choice = Console.ReadLine();        
@@ -27,23 +27,22 @@ namespace GettingRealApp
                 {
                     case "1":
                         Console.Clear();
-                        AddDevice();
-                        Console.ReadKey();
+                        AddDevice();                        
                         break;
 
                     case "3":
                         Console.Clear();
                         RemoveDevice();
-                        Console.ReadKey();
+                     
                         break;
 
                     case "4":
-                        running = false;
+                        running3 = false;
                         MainWindow.Rightsselection();
                         break;
 
                 }
-            } while (running);
+            } 
 
 
 
@@ -57,9 +56,8 @@ namespace GettingRealApp
             Console.WriteLine("Insert Name for new pc:");
             string name = Console.ReadLine();
 
-            DeviceRepository.StaticInstance.CreateDevice(id, name);          
-
-            Console.WriteLine(DeviceRepository.StaticInstance.GetDevice(id).DeviceId + DeviceRepository.StaticInstance.GetDevice(id).DeviceName);
+            DeviceRepository.StaticInstance.CreateDevice(id, name);        
+            Console.WriteLine(DeviceRepository.StaticInstance.GetDevice(id).ToString());
         }
 
         public static void RemoveDevice()

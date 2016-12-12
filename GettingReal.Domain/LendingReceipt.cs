@@ -13,6 +13,7 @@ namespace GettingRealDomain
         public  Lending Loan { get; set; } 
         public  string Casenumber { get; set; }
         public  string Initials { get; set; }
+       
 
     
         
@@ -22,8 +23,7 @@ namespace GettingRealDomain
             this.Casenumber = casenumber;
             this.Loan= loan;
             this.CurrentTime = DateTime.Now;
-            this.Initials = initials;
-            
+            this.Initials = initials;            
 
         }
          public LendingReceipt() { }
@@ -38,7 +38,7 @@ namespace GettingRealDomain
             return this.Loan;
         }
 
-        public void SetStatusLoan(string status)
+      public void SetStatusLoan(string status)
         {
       
             switch (status)
@@ -69,12 +69,13 @@ namespace GettingRealDomain
 
         public override string ToString()
         {
-            return "Casenumber: " + Casenumber + " \n"
+            return    
+                "Status: " + Loan.Status + "\n"          
+                + "Casenumber: " + Casenumber + " \n"
                 + "From: " + CurrentTime + " "
                 + "To: " + Loan.EndDate + "  \n"
                 + "Created by: " + Initials + " \n"
-                + "Borrowed by: " + LoanerInfo + " \n";    
-                              
+                + "Borrowed by: " + LoanerInfo + " \n";                               
                               
         }
 
