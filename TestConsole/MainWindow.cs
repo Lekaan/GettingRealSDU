@@ -17,7 +17,8 @@ namespace GettingRealApp
 
         static void Main(string[] args)
         {
-            
+            DeviceRepository.StaticInstance.LoadData();
+            LendingReceiptRepository.Instance.LoadData();
             Setup.Headder();
             Console.Write("Enter Initials:");
             Initials = Console.ReadLine();

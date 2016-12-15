@@ -25,7 +25,7 @@ namespace GettingRealSDU_BL
 
         public List<Device> DeviceList;
         XML xml = new XML();
-        string divecelistfile ="DevicesListFile.xml";
+        string divecelistfile = "devices.xml";
         public DeviceRepository()
         {
            DeviceList = new List<Device>();

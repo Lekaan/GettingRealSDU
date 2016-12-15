@@ -115,6 +115,8 @@ namespace GettingRealApp
             LendingReceiptRepository.Instance.FindReceiptByCasenumber(casenumber).Loan.Devices.ForEach(Device => Console.WriteLine(Device.ToString()));
             LendingReceiptRepository.Instance.FindReceiptByCasenumber(casenumber).Loan.Status = Lending.Udlaan.Udlaant;
             Console.ReadLine();
+            LendingReceiptRepository.Instance.SaveData();
+            LendingReceiptRepository.Instance.LoadData();
 
         }
 
@@ -181,13 +183,17 @@ namespace GettingRealApp
             LendingReceiptRepository.Instance.FindReceiptByCasenumber(casenumber).Loan.Devices.ForEach(Device => Console.WriteLine(Device.ToString()));
             LendingReceiptRepository.Instance.FindReceiptByCasenumber(casenumber).Loan.Status = Lending.Udlaan.Reserveret;
             Console.ReadLine();
+            LendingReceiptRepository.Instance.SaveData();
+            LendingReceiptRepository.Instance.LoadData();
 
 
         }
 
         public static void ShowLoanerReceipt()
         {
-           foreach( var LendingReceipt in LendingReceiptRepository.Instance.lendingReceiptList)
+            LendingReceiptRepository.Instance.LoadData();
+
+            foreach ( var LendingReceipt in LendingReceiptRepository.Instance.lendingReceiptList)
             {
                 Console.WriteLine(LendingReceipt.ToString());
                 Console.WriteLine("Devices borrowed");

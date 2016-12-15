@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GettingRealDomain;
+using GettingRealDAL;
 
 namespace GettingRealSDU_BL
 {
@@ -20,6 +21,7 @@ namespace GettingRealSDU_BL
         }
 
         public List<LendingReceipt> lendingReceiptList;
+        string LendingReceipts = "lendingreceipt.xml";
         public LendingReceiptRepository()
         {
             lendingReceiptList = new List<LendingReceipt>();
@@ -28,12 +30,12 @@ namespace GettingRealSDU_BL
 
         public void LoadData()
         {
-            throw new NotImplementedException();
+           Instance.lendingReceiptList= XML.LoadLendingReceiptFromXmlFile(LendingReceipts);
         }
 
         public void SaveData()
         {
-            throw new NotImplementedException();
+           XML.SaveLendingReceiptToXmlFile(Instance.lendingReceiptList, LendingReceipts);
         }
 
         public void CreateLendingReceipt(string loanerinfo, string casenumber, Lending loan, string initials)
@@ -59,8 +61,7 @@ namespace GettingRealSDU_BL
                     NotAvailable.AddRange(Lending.Loan.Devices);
                     Available = DeviceRepository.StaticInstance.DeviceList.Except<Device>(NotAvailable).ToList();                 
                     
-                }
-             
+                }             
 
             }
 
