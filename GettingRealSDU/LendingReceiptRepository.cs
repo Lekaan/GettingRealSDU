@@ -22,9 +22,11 @@ namespace GettingRealSDU_BL
 
         public List<LendingReceipt> lendingReceiptList;
         string LendingReceipts = "lendingreceipt.xml";
+        
         public LendingReceiptRepository()
         {
             lendingReceiptList = new List<LendingReceipt>();
+           
         }
 
 
@@ -54,18 +56,20 @@ namespace GettingRealSDU_BL
             List<Device> Available = new List<Device>();
             Available = DeviceRepository.StaticInstance.DeviceList;
 
-            foreach (var Lending in Instance.lendingReceiptList)
+
+
+            foreach (var LendingReceipt in Instance.lendingReceiptList)
             {
-                if (Lending.Loan.StartDate <= end && start <= Lending.Loan.EndDate)
+                if (LendingReceipt.Loan.StartDate <= end && start <= LendingReceipt.Loan.EndDate)
                 {
-                    NotAvailable.AddRange(Lending.Loan.Devices);
-                    Available = DeviceRepository.StaticInstance.DeviceList.Except<Device>(NotAvailable).ToList();                 
+                    NotAvailable.AddRange(LendingReceipt.Loan.Devices);                                 
                     
                 }             
 
             }
-
+            Available.RemoveAll(Device1 => NotAvailable.Any(Device => Device.DeviceId == Device1.DeviceId));
             return Available;
+
         }
 
 

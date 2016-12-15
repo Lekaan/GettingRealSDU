@@ -50,5 +50,18 @@ namespace GettingRealSDUTest
             Assert.IsTrue("5" == testdevice.DeviceId);
             Assert.IsTrue("PC5" == testdevice.DeviceName);
         }
+
+        [TestMethod]
+        public void DeleteDevice()
+        {                      
+            DeviceRepository.StaticInstance.DeleteDevice("5");
+            Device testdevice = DeviceRepository.StaticInstance.GetDevice("5");
+            Assert.IsNull(testdevice);
+        }
+
+
+
+
+
     }
 }

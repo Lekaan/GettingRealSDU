@@ -65,8 +65,8 @@ namespace GettingRealSDUTest
         }
 
         [TestMethod]
-        public void CannotCreateLoanOfDeviceThatIsAlreadyBorrowed()
-        {
+        public void ReturnAvailableDevicesfortimeperiod()
+        {            
             throw new NotImplementedException();
         }
     }
