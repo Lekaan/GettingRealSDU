@@ -50,6 +50,10 @@
       <Project>{a6b4246f-8eab-49cd-8feb-c8aca896a87b}</Project>
       <Name>GettingRealDomain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GettingRealDAL\GettingRealDAL.csproj">
+      <Project>{f182669d-14cf-4edf-bb17-ae15a38562dd}</Project>
+      <Name>GettingRealDAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

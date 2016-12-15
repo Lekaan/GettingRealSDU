@@ -58,10 +58,14 @@ namespace GettingRealApp
 
             DeviceRepository.StaticInstance.CreateDevice(id, name);        
             Console.WriteLine(DeviceRepository.StaticInstance.GetDevice(id).ToString());
+            DeviceRepository.StaticInstance.SaveData();
+            DeviceRepository.StaticInstance.LoadData();
+            Console.WriteLine("Saved to File.");
         }
 
         public static void RemoveDevice()
         {
+            DeviceRepository.StaticInstance.LoadData();
             Console.Clear();
             DeviceRepository.StaticInstance.DeviceList.ForEach(Device => Console.WriteLine(Device));
             Console.WriteLine("Insert Id for the pc you want to remove:");
@@ -74,7 +78,9 @@ namespace GettingRealApp
             Console.WriteLine("removed Id number {0}", id);
             DeviceRepository.StaticInstance.DeviceList.ForEach(Device => Console.WriteLine(Device));
 
-
+            DeviceRepository.StaticInstance.SaveData();
+            DeviceRepository.StaticInstance.LoadData();
+            Console.WriteLine("Saved to File.");
 
         }
     }

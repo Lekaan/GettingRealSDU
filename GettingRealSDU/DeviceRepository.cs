@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GettingRealDomain;
+using GettingRealDAL;
 
 
 
@@ -23,6 +24,8 @@ namespace GettingRealSDU_BL
 
 
         public List<Device> DeviceList;
+        XML xml = new XML();
+        string divecelistfile ="DevicesListFile.xml";
         public DeviceRepository()
         {
            DeviceList = new List<Device>();
@@ -40,8 +43,7 @@ namespace GettingRealSDU_BL
         }
 
         public void CreateDevice(string id, string name)
-        {     
-                      
+        {                           
            StaticInstance.DeviceList.Add(new Device(id, name));
         }
 
@@ -52,12 +54,12 @@ namespace GettingRealSDU_BL
 
         public void LoadData()
         {
-            throw new NotImplementedException();
+          StaticInstance.DeviceList=XML.LoadDeviceListFromXmlFile(divecelistfile);
         }
 
         public void SaveData()
         {
-            throw new NotImplementedException();
+            XML.SaveDeviceListToXmlFile(DeviceList, divecelistfile);
         }
     }
 }
