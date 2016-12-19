@@ -25,11 +25,8 @@ namespace GettingRealSDU_BL
         
         public LendingReceiptRepository()
         {
-            lendingReceiptList = new List<LendingReceipt>();
-           
+            lendingReceiptList = new List<LendingReceipt>();           
         }
-
-
         public void LoadData()
         {
            Instance.lendingReceiptList= XML.LoadLendingReceiptFromXmlFile(LendingReceipts);
@@ -50,29 +47,24 @@ namespace GettingRealSDU_BL
             return  Instance.lendingReceiptList.Find(LendingReceipt => LendingReceipt.Casenumber == casenumber);
         }
 
-        public List<Device> ReturnAvailableDevicesForGivenPeriod(DateTime start, DateTime end)
+        public void DeleteLendingReceiptbyCasenumber(string casenumber)
         {
-            List<Device> NotAvailable = new List<Device>();
+            Instance.lendingReceiptList.Remove(lendingReceiptList.Find(LendingReceipt => LendingReceipt.Casenumber == casenumber));
+        }
+
+        public List<Device> ReturnAvailableDevicesForGivenPeriod(DateTime start, DateTime end)
+        {           
             List<Device> Available = new List<Device>();
             Available = DeviceRepository.StaticInstance.DeviceList;
-
-
 
             foreach (var LendingReceipt in Instance.lendingReceiptList)
             {
                 if (LendingReceipt.Loan.StartDate <= end && start <= LendingReceipt.Loan.EndDate)
-                {
-                    NotAvailable.AddRange(LendingReceipt.Loan.Devices);                                 
-                    
+                {                   
+                   Available.RemoveAll(DeviceinAvailable => LendingReceipt.Loan.Devices.Any(Device => Device.DeviceId == DeviceinAvailable.DeviceId));
                 }             
-
             }
-            Available.RemoveAll(Device1 => NotAvailable.Any(Device => Device.DeviceId == Device1.DeviceId));
-            return Available;
-
+           return Available;
         }
-
-
-
     }
 }
