@@ -61,7 +61,8 @@ namespace GettingRealSDU_BL
             {
                 if (LendingReceipt.Loan.StartDate <= end && start <= LendingReceipt.Loan.EndDate)
                 {                   
-                   Available.RemoveAll(DeviceinAvailable => LendingReceipt.Loan.Devices.Any(Device => Device.DeviceId == DeviceinAvailable.DeviceId));
+                   Available.RemoveAll(DeviceinAvailable => LendingReceipt.Loan.Devices.Any
+                   (Device => Device.DeviceId == DeviceinAvailable.DeviceId));
                 }             
             }
            return Available;
