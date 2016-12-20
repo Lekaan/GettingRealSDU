@@ -53,8 +53,7 @@ namespace GettingRealApp
                     case "x":
                         running = false;
                         break;
-                    default:
-                        break;
+                    
 
                 }
             } 

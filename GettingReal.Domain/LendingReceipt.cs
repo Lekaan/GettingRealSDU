@@ -26,7 +26,7 @@ namespace GettingRealDomain
             this.Initials = initials;            
 
         }
-         public LendingReceipt() { }
+        public LendingReceipt() { }
 
         public void CreateLoan(DateTime start, DateTime end, List<Device> devices)
         {

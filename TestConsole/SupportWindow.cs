@@ -79,7 +79,7 @@ namespace GettingRealApp
 
             do
             {
-                Console.WriteLine("\n Choose PC to add to Loan, end selection with x");
+                Console.WriteLine("\nChoose PC to add to Loan, end selection with x");
                 choice = Console.ReadLine();
                 if (choice != "x")
                 {

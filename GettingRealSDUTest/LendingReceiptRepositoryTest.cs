@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using GettingRealSDU_BL;
 using System.Collections.Generic;
 using GettingRealDomain;
+using System.Linq;
 
 namespace GettingRealSDUTest
 {
@@ -30,9 +31,7 @@ namespace GettingRealSDUTest
             string loanerinfo = "Søren";
 
             LendingReceiptRepository.Instance.CreateLendingReceipt(loanerinfo,casenumber,loan, "Pelle");
-
             Assert.AreEqual(casenumber,LendingReceiptRepository.Instance.lendingReceiptList[0].Casenumber);
-
 
         }
 
@@ -60,14 +59,26 @@ namespace GettingRealSDUTest
             DateTime startdate = new DateTime(2017, 11, 30);
             Assert.AreEqual(startdate, lendingreceipt.Loan.StartDate);
 
-
-
         }
 
         [TestMethod]
         public void ReturnAvailableDevicesfortimeperiod()
-        {            
-            throw new NotImplementedException();
+        {   
+            Device devicePelle = new Device("1", "Pelles-PC");
+            List<Device> PelleDevicelist = new List<Device>();
+
+            DeviceRepository.StaticInstance.DeviceList.Add(devicePelle);
+            PelleDevicelist.Add(devicePelle);
+
+            DateTime start = new DateTime(2017, 11, 30);
+            DateTime slut = new DateTime(2017, 12, 3);
+
+            lr.CreateLoan(start, slut, PelleDevicelist);
+            Lending loanSøren = lr.GetLoan();      
+          
+            LendingReceiptRepository.Instance.CreateLendingReceipt("Søren Hansen Søren@mail.com", "Søren-1234", loanSøren, "Pelle");
+            Assert.IsFalse(LendingReceiptRepository.Instance.ReturnAvailableDevicesForGivenPeriod(start, slut).Contains(devicePelle));      
+                    
         }
     }
 }
