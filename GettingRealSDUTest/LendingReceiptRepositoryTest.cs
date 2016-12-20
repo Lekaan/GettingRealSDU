@@ -63,7 +63,8 @@ namespace GettingRealSDUTest
 
         [TestMethod]
         public void ReturnAvailableDevicesfortimeperiod()
-        {   
+        {
+            LendingReceipt lendingReceipt = new LendingReceipt();
             Device devicePelle = new Device("1", "Pelles-PC");
             List<Device> PelleDevicelist = new List<Device>();
 
@@ -73,11 +74,12 @@ namespace GettingRealSDUTest
             DateTime start = new DateTime(2017, 11, 30);
             DateTime slut = new DateTime(2017, 12, 3);
 
-            lr.CreateLoan(start, slut, PelleDevicelist);
-            Lending loanSøren = lr.GetLoan();      
+            lendingReceipt.CreateLoan(start, slut, PelleDevicelist);
+            Lending loanSøren = lendingReceipt.GetLoan();      
           
             LendingReceiptRepository.Instance.CreateLendingReceipt("Søren Hansen Søren@mail.com", "Søren-1234", loanSøren, "Pelle");
-            Assert.IsFalse(LendingReceiptRepository.Instance.ReturnAvailableDevicesForGivenPeriod(start, slut).Contains(devicePelle));      
+            Assert.IsFalse(LendingReceiptRepository.Instance.ReturnAvailableDevicesForGivenPeriod(start, slut).Contains(devicePelle));
+              
                     
         }
     }
